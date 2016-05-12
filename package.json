@@ -1,0 +1,28 @@
+{
+  "name": "ionsible-tests",
+  "version": "0.1.0",
+  "description": "Tests and exercises for ionsible",
+  "main": "test.js",
+  "dependencies": {
+    "ionsible": "^0.1.0"
+  },
+  "devDependencies": {
+    "typescript": "^1.8.10"
+  },
+  "scripts": {
+    "test": "node test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/micahcowan/ionsible-tests.git"
+  },
+  "scripts": {
+    "test": "make check"
+  },
+  "author": {
+      "email": "micah@addictivecode.org",
+      "name": "Micah J Cowan",
+      "url": "http://micah.cowan.name/"
+  },
+  "license": "ISC"
+}
