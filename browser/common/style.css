@@ -1,0 +1,22 @@
+#ion-results {
+    border: solid 0.2em #0a0;
+}
+
+#ion-results.ion-fail {
+    border-color: #800;
+}
+
+p.ion-fail, p.ion-pass {
+    font-weight: bold;
+    margin: 0.5em;
+    padding: 0.2em;
+}
+
+p.ion-fail {
+    // color: #800;
+    background-color: #faa;
+}
+
+p.ion-pass {
+    color: #0a0;
+}
