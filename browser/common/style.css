@@ -1,5 +1,7 @@
 #ion-results {
     border: solid 0.2em #0a0;
+    float: top;
+    display: block;
 }
 
 #ion-results.ion-fail {
@@ -13,10 +15,15 @@ p.ion-fail, p.ion-pass {
 }
 
 p.ion-fail {
-    // color: #800;
     background-color: #faa;
 }
 
 p.ion-pass {
-    color: #0a0;
+    background-color: #0a0;
+}
+
+canvas {
+    width: 33%;
+    border: solid 0.2em black;
+    margin: 0.3em;
 }
