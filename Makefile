@@ -1,27 +1,30 @@
 .PHONY: clean all run build
 
-SRC=src/*.ts
-BSRC=browser-src/*/*.ts
+SRC=$(wildcard src/*.ts)
+BSRC=$(wildcard browser-src/*/*.ts)
 
-# XXX: More automation here
-BBSRC=browser/game/index-b.js
+PATH:=$(PATH):node_modules/.bin
+
+BRSLT=$(patsubst browser-src/%.ts,browser/%.js,$(BSRC))
+
+BBROWS=$(patsubst %.js,%-b.js,$(BRSLT))
 
 all: build run
 
 run: build
 	node build/test.js
 
-build: build/test.js browser/game/index-b.js
+build: build/test.js $(BBROWS)
 
 
 build/test.js: $(SRC)
-	tsc --moduleResolution node -t ES5 --outDir build $^
+	tsc --moduleResolution node -t ES5 --outDir build $^ || { $(MAKE) clean; exit 1; }
 
-browser/game/index-b.js: browser/game/index.js
-	browserify -o $@ $^
+$(BBROWS): $(BRSLT)
+	browserify -o $@ $(patsubst %-b.js,%.js,$@)
 
-browser/game/index.js: $(BSRC)
-	tsc --moduleResolution node -t ES5 --rootDir browser-src --outDir browser $^
+$(BRSLT): $(BSRC)
+	tsc --moduleResolution node -t ES5 --rootDir browser-src --outDir browser $^ || { $(MAKE) clean; exit 1; }
 
 clean:
 	rm -fr build browser/*/*.js

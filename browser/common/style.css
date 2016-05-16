@@ -23,7 +23,6 @@ p.ion-pass {
 }
 
 canvas {
-    width: 33%;
     border: solid 0.2em black;
     margin: 0.3em;
 }
