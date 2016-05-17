@@ -12,7 +12,7 @@ class Background extends Ion.Sprite {
 
 class Ball extends Ion.Sprite {
     radius : number = 30;
-    vel = Ion.veloc(5, 5);
+    vel = Ion.veloc(-75, -75);
     draw(c : CanvasRenderingContext2D) : void {
         c.arc(0, 0, this.radius, 0, 2 * Math.PI);
         c.fillStyle = "blue";
@@ -20,6 +20,10 @@ class Ball extends Ion.Sprite {
     }
     behaviorsDef = [
         Ion.b.Momentum
+      , Ion.b.Bounded(
+            Ion.util.gameRect
+          , Ion.util.spriteBounce
+        )
     ]
     constructor(game : Ion.Game) {
         super(game);
