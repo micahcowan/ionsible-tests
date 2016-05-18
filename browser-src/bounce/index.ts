@@ -18,7 +18,7 @@ class Ball extends Ion.Sprite {
         c.fillStyle = "blue";
         c.fill();
     }
-    behaviorsDef = [
+    behaviors = [
         Ion.b.Momentum
       , Ion.b.Bounded(
             Ion.util.gameRect
